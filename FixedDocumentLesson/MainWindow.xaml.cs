@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Xps.Packaging;
+using System.Windows.Xps;
 
 namespace FixedDocumentLesson
 {
@@ -39,6 +40,22 @@ namespace FixedDocumentLesson
                 using (var xpsDocument = new XpsDocument(xpsFilePath, FileAccess.ReadWrite))
                 {
                     documentViewer.Document = xpsDocument.GetFixedDocumentSequence();
+                }
+            }
+        }
+
+        private void SaveXpsAs(object sender, RoutedEventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+            var hasResult = saveFileDialog.ShowDialog();
+
+            if(hasResult.Value)
+            {
+                var xpsFilePath = saveFileDialog.FileName;
+                using (var xpsDocument = new XpsDocument(xpsFilePath, FileAccess.ReadWrite))
+                {
+                    XpsDocumentWriter writer = new XpsDocumentWriter.CreateXpsDocumentWriter(xpsDocument);
+                    writer.Write(fixedDocument);
                 }
             }
         }

@@ -7,12 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DocumentViewer Name="documentViewer">
+        <DocumentViewer Name="documentViewer" Margin="0,0,0,33">
             <FixedDocument Name="fixedDocument">
-                
+                <PageContent>
+                    <Ellipse Width="40" Height="60" Fill="Azure"/>
+                </PageContent>
             </FixedDocument>
         </DocumentViewer>
-        <Button Content="Загрузить" Name="uploadButton" HorizontalAlignment="Left" Margin="415,406,0,0" VerticalAlignment="Top" Click="UploadXpsFile"/>
+        <Button Content="Загрузить" Name="uploadButton" HorizontalAlignment="Left" Margin="310,406,0,0" VerticalAlignment="Top" Click="UploadXpsFile"/>
+        <Button Content="Сохранить как" Name="saveButton" HorizontalAlignment="Left" Margin="408,407,0,0" VerticalAlignment="Top" Click="SaveXpsAs"/>
 
     </Grid>
 </Window>
